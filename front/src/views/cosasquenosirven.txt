@@ -1,0 +1,184 @@
+ESTO DE AQUI IBA EN CONTACT
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+
+<div id="app">
+  <h1>Contactarnos</h1>
+
+  <!-- Google Maps -->
+  <div>
+    <!-- Mostrar Google Maps aquí -->
+    {{-- Revisar este link para utilizar api de google maps 
+        https://developers.google.com/maps/documentation/embed/get-started?hl=es-419--}}
+    <p>Google Maps</p>
+    <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+            &q=Space+Needle,Seattle+WA">
+    </iframe>
+  </div>
+
+  <!-- Ubicación -->
+  <div>
+    <i class="fas fa-map-marker-alt"></i>
+    <p>Ingrese su dirección aquí</p>
+  </div>
+
+  <!-- Teléfono -->
+  <div>
+    <i class="fas fa-phone"></i>
+    <p>Ingrese su número de teléfono aquí</p>
+  </div>
+
+  <!-- Div de separación con texto "Atención al Cliente" -->
+  <div class="separation-div">
+    <p>Atención al Cliente</p>
+  </div>
+
+  <!-- Formulario de contacto -->
+  <div>
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Mensaje:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  /* Estilos opcionales, puedes personalizarlos según tus necesidades */
+  #app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Estilos para el div de separación */
+  .separation-div {
+    background-color: #00ff00; /* Verde */
+    padding: 10px;
+    margin-top: 20px;
+  }
+</style>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      // Puedes agregar datos adicionales aquí si es necesario
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+#################################ESTO DE ACA VA EN US#########################
+<!--  Instalar npm install vue-carousel -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conociéndonos</title>
+  <!-- Agrega los enlaces a tus estilos CSS si es necesario -->
+</head>
+<body>
+
+  <div id="app">
+    <logo />
+    <title />
+    <profile-carousel />
+  </div>
+
+  <!-- Importa Vue y la versión compilada y minificada de VueCarousel -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0"></script>
+
+  <script>
+    // Define los componentes en línea o carga el archivo JavaScript que contiene los componentes
+    Vue.component('logo', {
+      template: `
+        <div class="logo">
+          <img src="@/assets/logo.png" alt="Logo">
+        </div>
+      `,
+      // Agrega estilos si es necesario
+    });
+
+    Vue.component('title', {
+      data() {
+        return {
+          pageTitle: "Conociéndonos",
+        };
+      },
+      template: `
+        <div class="title">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      `,
+      // Agrega estilos si es necesario
+    });
+
+    Vue.component('profile-carousel', {
+      components: {
+        'carousel': VueCarousel.Carousel,
+        'slide': VueCarousel.Slide,
+      },
+      data() {
+        return {
+          profiles: [
+            { id: 1, name: "Perfil 1", image: "@/assets/logo.png", bio: "Descripción del perfil 1" },
+            { id: 2, name: "Perfil 2", image: "@/assets/logo.png", bio: "Descripción del perfil 2" },
+            { id: 3, name: "Perfil 3", image: "@/assets/logo.png", bio: "Descripción del perfil 3" },
+            // Agrega más perfiles según sea necesario
+          ],
+        };
+      },
+      template: `
+        <div class="profile-carousel">
+          <carousel :perPageCustom="[[0, 1], [576, 2], [992, 3]]">
+            <slide v-for="profile in profiles" :key="profile.id">
+              <div class="profile">
+                <img :src="profile.image" :alt="profile.name">
+                <h3>{{ profile.name }}</h3>
+                <p>{{ profile.bio }}</p>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      `,
+      // Agrega estilos si es necesario
+    });
+
+    new Vue({
+      el: '#app',
+    });
+  </script>
+
+  <!-- Agrega tus scripts adicionales si es necesario -->
+</body>
+</html>
+
